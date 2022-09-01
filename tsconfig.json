@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "lib": ["es6"],
+    "allowJs": true,
+    "outDir": "./dist",
+    "rootDir": "./server",
+    "removeComments": true,
+    "isolatedModules": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      /* import absolute path */
+      "@application/*": ["server/application/*"],
+      "@infra/*": ["server/infra/*"],
+      "@interfaces/*": ["server/domain/interfaces/*"]
+    }
+  }
+}
