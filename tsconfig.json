@@ -18,6 +18,7 @@
       /* import absolute path */
       "@application/*": ["server/application/*"],
       "@infra/*": ["server/infra/*"],
+      "@domain/*": ["server/domain/*"],
       "@interfaces/*": ["server/domain/interfaces/*"]
     }
   }
