@@ -13,13 +13,18 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "baseUrl": ".",
     "paths": {
       /* import absolute path */
       "@application/*": ["server/application/*"],
-      "@infra/*": ["server/infra/*"],
+      "@infra/*": ["./server/infra/*"],
       "@domain/*": ["server/domain/*"],
-      "@interfaces/*": ["server/domain/interfaces/*"]
+      "@interfaces/*": ["./server/domain/interfaces/*"],
+      /* import from index.ts */
+      "@DTO": ["./server/domain/DTO"],
+      "@repositories": ["./server/infra/data/repositories"],
+      "@services": ["./server/domain/services"],
     }
   }
 }

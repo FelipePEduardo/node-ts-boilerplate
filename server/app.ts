@@ -8,6 +8,7 @@ dotenv.config();
 
 const app: Application = express();
 app.use(helmet());
+app.use(express.json({ limit: '50mb' }));
 app.use(corsMiddleware);
 
 export default app;
