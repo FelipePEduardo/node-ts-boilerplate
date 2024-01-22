@@ -15,19 +15,19 @@
 
 ### Project Setup
 ```
-yarn
+pnpm i
 ## or
-yarn install
+pnpm install
 ```
 
 ### Compile for production
 ```
-yarn build
+pnpm build
 ```
 
 ### Verify lint
 ```
-yarn lint
+pnpm lint
 ```
 
 ---
