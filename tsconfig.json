@@ -23,6 +23,7 @@
       "@interfaces/*": ["./server/domain/interfaces/*"],
       /* import from index.ts */
       "@DTO": ["./server/domain/DTO"],
+      "@infra": ["./server/infra/*"],
       "@repositories": ["./server/infra/data/repositories"],
       "@services": ["./server/domain/services"],
     }

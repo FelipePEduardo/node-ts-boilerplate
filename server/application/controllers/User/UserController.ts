@@ -7,23 +7,39 @@ import validateNumericProp from '@application/helpers/validateNumericProp';
 
 @injectable()
 export default class UserController implements IUserController {
-  constructor(private UserService: IUserService) {}
+  constructor(private service: IUserService) {}
 
   public async search(req: Request, res: Response): Promise<Response> {
-    const result = await this.UserService.search();
+    const users = await this.service.search();
 
-    return res.json(result);
+    return res.json(users);
+  }
+
+  public async create(req: Request, res: Response): Promise<Response> {
+    const { body } = req;
+
+    const user = await this.service.create(body);
+
+    return res.json(user.toDto()).status(201);
   }
 
   public async update(req: Request, res: Response): Promise<Response> {
     const { params, body } = req;
 
-    const id = validateNumericProp(params.id, 'id')
+    const id = validateNumericProp(params.id, 'id');
 
-    const result = await this.UserService.update(id, body);
+    const user = await this.service.update(id, body);
 
-    console.log(result)
+    return res.json(user.toDto());
+  }
 
-    return res.json(result);
+  public async inactivate(req: Request, res: Response): Promise<Response> {
+    const { params } = req;
+
+    const id = validateNumericProp(params.id, 'id');
+
+    await this.service.inactivate(id);
+
+    return res.sendStatus(204);
   }
 }
