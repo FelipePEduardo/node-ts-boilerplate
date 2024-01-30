@@ -36,7 +36,7 @@ export default class UserService implements IUsersService {
       const emailAlreadyExists = await this.repository.verifyIfEmailAlreadyExists(dto.email);
 
       if (emailAlreadyExists) {
-        throw new CustomError('Email already exists', 404);
+        throw new CustomError('Email already exists', 401);
       }
     }
 
