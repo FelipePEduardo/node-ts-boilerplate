@@ -1,1 +1,2 @@
-export * from './UserMapper'
+export { default as UserMapper } from './UserMapper';
+

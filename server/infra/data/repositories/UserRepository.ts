@@ -1,9 +1,10 @@
 import { injectable } from 'inversify';
+
 import { IUserRepository } from '@interfaces/repositories';
 import BaseRepository from './BaseRepository';
 import { UserDto } from '@domain/DTO';
 import { User } from '@domain/models';
-import UserMapper from '../mappers/User/UserMapper';
+import { UserMapper } from '@infra/data/mappers';
 
 @injectable()
 export default class UserRepository extends BaseRepository implements IUserRepository {
