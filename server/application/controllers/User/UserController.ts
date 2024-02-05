@@ -3,19 +3,19 @@ import { injectable } from 'inversify';
 
 import { IUserController } from '@interfaces/controllers';
 import { IUserService } from '@interfaces/services';
-import validateNumericProp from '@application/helpers/validateNumericProp';
+import { validateNumericProp } from '@application/helpers';
 
 @injectable()
 export default class UserController implements IUserController {
   constructor(private service: IUserService) {}
 
-  public async search(req: Request, res: Response): Promise<Response> {
+  async search(req: Request, res: Response): Promise<Response> {
     const users = await this.service.search();
 
     return res.json(users);
   }
 
-  public async create(req: Request, res: Response): Promise<Response> {
+  async create(req: Request, res: Response): Promise<Response> {
     const { body } = req;
 
     const user = await this.service.create(body);
@@ -23,7 +23,7 @@ export default class UserController implements IUserController {
     return res.json(user.toDto()).status(201);
   }
 
-  public async update(req: Request, res: Response): Promise<Response> {
+  async update(req: Request, res: Response): Promise<Response> {
     const { params, body } = req;
 
     const id = validateNumericProp(params.id, 'id');
@@ -33,7 +33,7 @@ export default class UserController implements IUserController {
     return res.json(user.toDto());
   }
 
-  public async inactivate(req: Request, res: Response): Promise<Response> {
+  async inactivate(req: Request, res: Response): Promise<Response> {
     const { params } = req;
 
     const id = validateNumericProp(params.id, 'id');

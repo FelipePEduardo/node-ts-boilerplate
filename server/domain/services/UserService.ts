@@ -1,12 +1,14 @@
-import { UserCreateDto, UserDto, UserUpdateDto } from '@domain/DTO';
-import IUsersRepository from '@domain/interfaces/repositories/IUserRepository';
-import IUsersService from '@domain/interfaces/services/IUserService';
-import { CustomError, EntityNotFoundError, User } from '@domain/models';
 import { injectable } from 'inversify';
 
+import { CustomError, EntityNotFoundError, User } from '@domain/models';
+import { IUserService } from '@interfaces/services';
+import { IUserRepository } from '@interfaces/repositories';
+
+import { UserCreateDto, UserDto, UserUpdateDto } from '@domain/DTO';
+
 @injectable()
-export default class UserService implements IUsersService {
-  constructor(private repository: IUsersRepository) {}
+export default class UserService implements IUserService {
+  constructor(private repository: IUserRepository) {}
 
   async search(): Promise<UserDto[]> {
     return this.repository.search();
