@@ -3,7 +3,7 @@ import { injectable } from 'inversify';
 
 import { IUserController } from '@interfaces/controllers';
 import { IUserService } from '@interfaces/services';
-import validateNumericProp from '@application/helpers/validateNumericProp';
+import { validateNumericProp } from '@application/helpers';
 
 @injectable()
 export default class UserController implements IUserController {

@@ -3,7 +3,7 @@ import { injectable } from 'inversify';
 
 import { ISkillController } from '@interfaces/controllers';
 import { ISkillService } from '@interfaces/services';
-import validateNumericProp from '@application/helpers/validateNumericProp';
+import { validateNumericProp } from '@application/helpers';
 
 @injectable()
 export default class SkillController implements ISkillController {
